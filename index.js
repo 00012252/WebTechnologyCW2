@@ -85,7 +85,58 @@ app.post("/tasks/create",(req,res)=>{
 })
 
 
+app.get("/tasks/:id/completed",(req,res)=>{
+    const id=req.params.id;
 
+
+
+    db.run("UPDATE task SET completed=1 WHERE Id=?",[id],(err)=>{
+        if(err) throw err;
+        
+        
+        db.all("SELECT * from task WHERE completed=0",[],(err,data)=>{
+            if(err) throw err;
+
+            res.render("tasks",{tasks:data});
+
+        })
+    })   
+        
+})
+
+app.get("/tasks/:id/uncompleted",(req,res)=>{
+    const id=req.params.id;
+
+
+
+    db.run("UPDATE task SET completed=0 WHERE Id=?",[id],(err)=>{
+        if(err) throw err;
+        
+        
+        db.all("SELECT * from task WHERE completed=1",[],(err,data)=>{
+            if(err) throw err;
+
+            res.render("completed",{tasks:data});
+
+        })
+    })   
+
+
+})
+
+
+app.get("/tasks/completed",(req,res)=>{
+
+    db.all("SELECT * FROM task WHERE completed=1",[],(err,data)=>{
+        if(err) throw err;
+
+
+        res.render("completed",{tasks:data})
+
+
+    })
+
+})
 
 
 

@@ -1,0 +1,16 @@
+extends layout.pug
+block content 
+  .container
+    h1.tasks-title HERE ARE YOUR Completed LIST
+    if tasks.length
+      each task in tasks
+        p.task-completed
+          span
+              //- input.checkbox(type="checkbox", name="checkbox") 
+              a.task-text #{task.tasks}
+          span
+            a.btn-complete(href=`/tasks/${task.Id}/uncompleted`) UnCompleted    
+        
+      
+    else 
+      p There are no Tasks yet..
