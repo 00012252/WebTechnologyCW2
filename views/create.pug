@@ -1,0 +1,13 @@
+extends layout.pug
+
+block content
+  .container
+    if success 
+        p.success You Task has been added successfully
+    if error 
+        p.error Please Fill the Form
+    if errorLength 
+        p.error Task Should be more than 3 characters
+    form.form(action="/tasks/create" method="POST")
+        input.input-create(type="text" name="task" class="task" placeholder="Enter a Task")
+        button.submit Adding a New Task

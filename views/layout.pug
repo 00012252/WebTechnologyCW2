@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', href='/static/styles.css')
+    title Basic Daily Task Manager App
+  body
+    .container
+      nav
+      ul
+        li 
+          a(href="/") Home
+        li 
+          a(href='/tasks') Tasks
+        li 
+          a(href='/tasks/create') New Task
+        li 
+          a(href='/tasks/completed') Completed Tasks
+
+block content
