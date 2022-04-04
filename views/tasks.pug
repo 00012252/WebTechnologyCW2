@@ -1,0 +1,21 @@
+extends layout.pug
+
+block content
+  .container
+    h1.tasks-title HERE ARE YOUR TASKS LIST
+    if success
+      p.success You Task has been Updated successfully
+    if tasks.length
+      each task in tasks
+        p.task-desc
+          span
+            //- input.checkbox(type="checkbox", name="checkbox") 
+            a.task-text #{task.tasks}
+          span
+            a.btn-edit(href=`/tasks/${task.Id}/edit`) Edit
+            a.btn-delete(href=`/tasks/${task.Id}/delete`) Delete
+            a.btn-complete(href=`/tasks/${task.Id}/completed`) Completed    
+      
+    
+    else 
+        p There are no Tasks yet..
