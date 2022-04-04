@@ -28,6 +28,7 @@ node app
 
 - express
 - pug
+-nodemon
 
 ### Link to github repo
 https://github.com/00012252/WebTechnologyCW2.git
