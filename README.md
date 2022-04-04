@@ -7,7 +7,7 @@ This application is intended to help to write your basic tasks
 1. Downloading the source code
 
 ```bash
-git clone 
+git clone https://github.com/00012252/WebTechnologyCW2.git
 ```
 
 or just download the \*.zip file
@@ -30,6 +30,6 @@ node app
 - pug
 
 ### Link to github repo
-
+https://github.com/00012252/WebTechnologyCW2.git
 
 ### Link to the Website URL
