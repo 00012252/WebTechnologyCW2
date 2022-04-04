@@ -1,0 +1,171 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+   max-width: 1100px;
+   margin: 100px auto;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(43, 106, 241);
+    padding: 10px 20px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: white;
+    
+    padding: 10px 20px;
+}
+
+.btn-tasks  {
+width: 90%;
+padding: 10px;
+text-decoration: none;
+text-align: center;
+display: block;
+margin: 20px auto;
+font-size: 20pt;
+background-color: rgb(43, 106, 241);
+color: white;
+border: none;
+}
+.title,.app-description {
+    margin-top: 10px;
+    word-spacing: 3px;
+    text-align: center;
+    
+} 
+.title {
+    
+    font-size: 4rem;
+    
+}
+.app-description {
+    font-size: 2rem;
+}
+
+.form {
+    display: block;
+    width: 100%;
+}
+
+.task-desc,.task-completed {
+    width: 90%;
+    padding:15px 10px;
+    background-color: #ccc;
+    margin: 10px auto ;
+    display: flex;
+    justify-content: space-between;
+
+
+} 
+
+.task-completed {
+    background-color: green;
+}
+
+span {
+    
+}
+
+/* .checkbox {
+    border: none;
+    font-size: 1.2rem;
+    margin-right: 10px;
+
+} */
+
+.btn-edit,.btn-delete,.btn-complete {
+    text-decoration:none ;
+    margin-left: 10px;
+    padding: 15px 20px;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.btn-edit {
+    background-color: green;
+    
+}
+
+.btn-delete {
+        background-color: red;
+}
+
+.btn-complete {
+    background-color: rgb(43, 106, 241);
+    margin-right: -10px;
+}
+
+
+/* Creating Element */
+
+.form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+
+}
+
+.input-create {
+  width: 90%;
+  border: none;
+  display: inline-block;  
+  padding: 10px;
+  outline: none;
+  background-color: lightblue;
+}
+
+.input-create:focus {
+    background-color: #FFC0CB;
+    
+}
+
+.input-create:focus::placeholder {
+    color: white;
+}
+
+.submit {
+    width: 90%;
+    display: block;
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+}
+
+.success,.error {
+    width: 90%;
+    padding: 15px;
+    
+    color: white;
+    margin: 10px auto;
+}
+
+.success {
+    background-color: green;
+}
+.error {
+    background-color: red;
+}
+
+.task-text,.task-compeleted {
+    font-size: 1.2rem;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+
+.tasks-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
