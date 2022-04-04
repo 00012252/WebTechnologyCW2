@@ -1,0 +1,11 @@
+extends layout.pug
+
+block content
+  .container
+    if error 
+      p.error Please fill the form to update it
+    if errorLength
+      p.error Please Make sure you have written at least 3 characters
+    form.form(action=`/tasks/${taskId}/edit` method="POST")
+      input.input-create(type="text" name="tasks" class="task" placeholder="Update a Task" value=`${tasks.tasks}`)
+      button.submit Update a New Task

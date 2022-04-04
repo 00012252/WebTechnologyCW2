@@ -140,6 +140,98 @@ app.get("/tasks/completed",(req,res)=>{
 
 
 
+
+app.get("/tasks/:id/edit",(req,res)=>{
+    const id=req.params.id;
+
+    sqlQuery = `SELECT Id,tasks
+           FROM task
+           WHERE Id  = ?`;
+
+    db.get(sqlQuery,[id],(err,row)=>{
+        if(err) throw err;
+
+        console.log(row);
+        res.render("edit",{tasks:row,taskId:id})
+
+    })
+
+
+
+})
+
+app.post("/tasks/:id/edit",(req,res)=>{
+    const id=req.params.id;
+    const formData=req.body;
+
+    if(formData.tasks.length===0)
+     {
+        db.get("SELECT tasks FROM task where completed=0 and Id=?",[id],(err,data)=>{
+            if(err) throw err;
+            console.log(data);
+            res.render("edit",{error:true,tasks:formData,taskId:id})
+
+            });
+       
+     }
+     else if(formData.tasks.length<3) {
+        db.get("SELECT * FROM task where completed=0 and Id=?",[id],(err,data)=>{
+            if(err) throw err;
+            console.log(data);
+            res.render("edit",{errorLength:true,tasks:formData,taskId:id})
+    
+     })
+    }
+     else {
+    sqlQuery = `UPDATE task
+    SET tasks = ?
+    WHERE Id = ?`;
+
+  db.run(sqlQuery, [formData.tasks,id], (err)=> {
+    if (err) throw err;
+
+  })
+
+  db.all("SELECT * FROM task where completed=0",[],(err,data)=>{
+    if(err) throw err;
+    console.log(data);
+    res.render("tasks",{tasks:data})
+    
+    });
+
+     }
+})
+
+
+
+app.get("/tasks/:id/delete",(req,res)=>{
+    const id=req.params.id;
+
+
+    db.run("DELETE FROM task WHERE Id=?",id,err=>{
+        if(err) throw err;
+
+
+        console.log("Task has been deleted Successfully");
+    })
+
+    db.all("SELECT * FROM task WHERE completed=0",[],(err,data)=>{
+        if(err) throw err;
+
+
+        res.render("tasks",{tasks:data});
+
+    })
+        
+})
+
+
+
+
+
+
+
+
 app.listen(PORT, (err)=>{
     if(err) throw err;
 
