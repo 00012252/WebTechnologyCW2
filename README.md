@@ -21,7 +21,7 @@ npm install
 3. Run the app
 
 ```bash
-node run start
+npm run start
 ```
 
 ### Dependencies List
