@@ -1,4 +1,4 @@
-# NOTE TAKING APPLICATION
+# BASIC TASK MANAGER APPLICATION
 
 This application is intended to help to write your basic tasks 
 
