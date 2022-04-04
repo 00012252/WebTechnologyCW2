@@ -21,7 +21,7 @@ npm install
 3. Run the app
 
 ```bash
-node app
+node index.js
 ```
 
 ### Dependencies List
